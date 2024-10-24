@@ -1,0 +1,30 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+<div class="container-fluid">
+    <div class="row vh-100">
+        <div class="col d-flex align-items-center justify-content-center">
+            <div class="log-in-form">
+                <div class="logo mb-5">
+                    <img src="../../../assets/images/ntspl_logo.png" alt="">
+                </div>
+                <h3>Welcome To Meeting Plus</h3>
+                <p>Enter your email id to logging into your account</p>
+                <div class="sign-in">
+                    <label for="otp">Enter your 6 digit otp<span>*</span></label>
+                    <br>
+                    <div class="input-box">
+                        <input type="text" placeholder="Enter OTP Here" [(ngModel)]="otp">
+                    </div>
+                    
+                </div>
+                <button class="verify-otp mt-4" (click)="verifyOtp()">Verify</button>
+
+                <div class="resend" (click)="sendOtp()">resend OTP</div>
+            </div>
+        </div>
+    </div>
+</div>

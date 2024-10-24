@@ -1,0 +1,50 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<div class="navbar">
+    <div class="nav-content">
+        <div class="nav-left">Meeting Plus</div>
+        <div class="nav-right">
+            <div class="crt-meet nav-right-content">
+                <button (click)="toggleCreateMeetingForm()">Create Meeting</button>
+            </div>
+            <div class="notify nav-right-content">
+                <img src="../../../assets/images/notification.png" alt="">
+                <div class="count-num">8</div>
+            </div>
+            <div class="profile nav-right-content">
+                <div class="photo"><img src="../../../assets/images/user.png" alt=""></div>
+                <div class="username">{{employeeName}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="home-view">
+    <div class="home home-view-content"><img src="../../../assets/images/home.png" alt="">Home</div>
+    <div class="timeline home-view-content"><img src="../../../assets/images/clock.png" alt="">Timeline</div>
+</div>
+
+<!-- Conditionally show the form when the button is clicked -->
+<div *ngIf="showCreateMeetingForm" class="create-meeting-modal">
+    <div class="meeting-form">
+      <h2>Create a New Meeting</h2>
+  
+      <!-- Conditionally show the form when the button is clicked -->
+<div *ngIf="showCreateMeetingForm">
+    <form (submit)="createMeeting(); $event.preventDefault()">
+      <div>
+        <label for="organizer">Organizer Name</label>
+        <input type="text" id="organizer" [(ngModel)]="organizerName" required />
+      </div>
+  
+      <button type="submit">Create Meeting</button>
+    </form>
+  </div>
+  
+  <!-- Display the generated meeting link -->
+  <div *ngIf="meetingLink">
+    <p>Meeting created successfully! Share this link to invite participants:</p>
+    <a [href]="meetingLink" target="_blank">{{ meetingLink }}</a>
+  </div>
+
+
